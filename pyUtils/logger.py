@@ -11,7 +11,7 @@ def get_module_logger(LOG_NAME = '', LOG_FILE_INFO  = 'file.log', LOG_FILE_ERROR
 
     file_handler_info = logging.FileHandler(LOG_FILE_INFO, mode='w')
     file_handler_info.setFormatter(log_formatter)
-    file_handler_info.setLevel(logging.INFO)
+    file_handler_info.setLevel(logging.DEBUG)
     log.addHandler(file_handler_info)
 
     file_handler_error = logging.FileHandler(LOG_FILE_ERROR, mode='w')
@@ -19,7 +19,7 @@ def get_module_logger(LOG_NAME = '', LOG_FILE_INFO  = 'file.log', LOG_FILE_ERROR
     file_handler_error.setLevel(logging.ERROR)
     log.addHandler(file_handler_error)
 
-    log.setLevel(logging.INFO)
+    log.setLevel(logging.DEBUG)
 
     return log
 
