@@ -95,7 +95,7 @@ while [ $# -gt 0 ]; do
 	shift
 done
 
-# get positional args
+# get args as -s erer.tc
 while getopts h:t:r:p:v: OPTION
 do
      case $OPTION in
@@ -119,4 +119,30 @@ do
              exit 1
              ;;
      esac
+done
+
+# get args as -f=erer.re
+for i in "$@"
+do
+case $i in
+    -e=*|--extension=*)
+    EXTENSION="${i#*=}"
+    shift # past argument=value
+    ;;
+    -s=*|--searchpath=*)
+    SEARCHPATH="${i#*=}"
+    shift # past argument=value
+    ;;
+    -l=*|--lib=*)
+    LIBPATH="${i#*=}"
+    shift # past argument=value
+    ;;
+    --default)
+    DEFAULT=YES
+    shift # past argument with no value
+    ;;
+    *)
+          # unknown option
+    ;;
+esac
 done
