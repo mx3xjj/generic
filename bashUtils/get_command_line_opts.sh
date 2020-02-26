@@ -7,6 +7,7 @@ error_msg ()
 }
 
 # get input parameters
+POSITIONAL=()
 RSTUDIO=true
 SHINY=false
 REXAMPLES=false
@@ -88,8 +89,8 @@ while [ $# -gt 0 ]; do
 			error_msg "unrecognized option: $1"
 			;;
 		*)
-			break;
-			;;
+			# unknown option
+    			POSITIONAL+=("$1") # save it in an array for later
 	esac
 	shift
 done
