@@ -93,3 +93,29 @@ while [ $# -gt 0 ]; do
 	esac
 	shift
 done
+
+# get positional args
+while getopts h:t:r:p:v: OPTION
+do
+     case $OPTION in
+         h)
+             CONFIGURATION_CSV=$OPTARG
+             ;;
+         t)
+             TEST=$OPTARG
+             ;;
+         r)
+             SERVER=$OPTARG
+             ;;
+         p)
+             PASSWD=$OPTARG
+             ;;
+         v)
+             VERBOSE=1
+             ;;
+         *)
+             error_msg "unrecognized option: $1"
+             exit 1
+             ;;
+     esac
+done
