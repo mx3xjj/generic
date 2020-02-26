@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# error message
+error_msg ()
+{
+	echo 1>&2 "Error: $1"
+}
+
 # get input parameters
 RSTUDIO=true
 SHINY=false
